@@ -1,0 +1,66 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: taskflow-api
+
+# --- DEV / H2 DATABASE PROFILE ---
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:mem:taskflow_db;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# JWT Configurations for Dev
+taskflow:
+  jwt:
+    secret: 407f34c264e101f2f01f28b488cb6b4a39ef2a233b8a1c97a5531d0442345d8b8a3e74a812328bbabdf3b1c67d16a
+    expiration-ms: 86400000 # 24 Hours
+
+# --- MYSQL PROFILE ---
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/taskflow_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: taskflow_user
+    password: taskflow_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+# JWT Configurations for MySQL/Prod
+taskflow:
+  jwt:
+    secret: 407f34c264e101f2f01f28b488cb6b4a39ef2a233b8a1c97a5531d0442345d8b8a3e74a812328bbabdf3b1c67d16a
+    expiration-ms: 86400000 # 24 Hours
+
+server:
+  port: 8080
+  error:
+    include-message: always

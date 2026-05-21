@@ -1,0 +1,41 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Compiled outputs
+/dist/
+/target/
+/build/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS/System files
+.DS_Store
+Thumbs.db
+
+# Database and Logs
+*.db
+*.sqlite
+*.log
+.gemini/
+antigravity/
+brain/
+
+# Local environment configs
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

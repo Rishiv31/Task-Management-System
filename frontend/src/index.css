@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #030303;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(15, 15, 25, 0.9) 0%, transparent 100%);
+    background-attachment: fixed;
+  }
+
+  /* Smooth customized scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphism Cards */
+  .glass-card {
+    background: rgba(10, 10, 15, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.25);
+    box-shadow: 0 12px 40px 0 rgba(99, 102, 241, 0.08);
+    background: rgba(15, 15, 25, 0.55);
+  }
+
+  /* Premium Glowing Panels */
+  .glass-panel {
+    background: rgba(8, 8, 12, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glow-border-purple {
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.05);
+  }
+
+  .glow-border-indigo {
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.05);
+  }
+
+  /* Raycast and Vercel style inputs */
+  .futuristic-input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .futuristic-input:focus {
+    outline: none;
+    border-color: rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Cyberpunk style neon buttons */
+  .btn-neon-indigo {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-neon-indigo:hover {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.55);
+    transform: scale(1.02);
+  }
+
+  .btn-neon-purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-neon-purple:hover {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.55);
+    transform: scale(1.02);
+  }
+
+  /* Grid overlay pattern */
+  .grid-overlay {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%);
+  }
+
+  /* Shimmer Loading Skeleton */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 25%,
+      rgba(255, 255, 255, 0.08) 37%,
+      rgba(255, 255, 255, 0.03) 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer-anim 1.4s ease infinite;
+  }
+}
+
+@keyframes shimmer-anim {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Kanban column drop indicators */
+.drop-indicator {
+  height: 4px;
+  width: 100%;
+  background: #6366f1;
+  border-radius: 99px;
+  box-shadow: 0 0 10px #6366f1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.drop-active {
+  opacity: 1;
+}
